@@ -31,6 +31,20 @@ public class FindNthMagicNumberOfBinary {
     }
 }
 
+/*
+    bitwise shift left operator
+    (10)base10 == (1010)base2
+    so 1010 << 1 = 10100 = (20) base10
+    thus, any x << 1 = 2x; just doubles it
+    e.g. 20 << 1 = 40
+    THUS, a << b = a * 2^b
+
+    right shift operator
+    0011001 >> 1 = 001100
+    a >> b = a / 2^b
+
+ */
+
 /**
  * the problem: A magic number is defined as a number which can be expressed as a power of 5 or sum of unique powers of 5. First few magic numbers are 5, 25, 30(5 + 25), 125, 130(125 + 5), ….
  * Write a function to find the nth Magic number.
