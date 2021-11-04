@@ -1,5 +1,4 @@
 package Math.Bitwise;
-
 /**
  *  GOOGLE Question:
  * Flipping an image (leetcode)
@@ -9,7 +8,7 @@ package Math.Bitwise;
  * To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0
  * [0,1,1] --> [1,0,0]
  */
-public class flipAnImage {
+public class FlipAnImage {
     public int[][] image(int[][] image) {
         for (int[] row : image) {
             // for every row in image, reverse this array
@@ -33,4 +32,3 @@ public class flipAnImage {
         return image;
     }
 }
-
