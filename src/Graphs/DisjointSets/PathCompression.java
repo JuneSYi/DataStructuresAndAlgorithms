@@ -11,10 +11,10 @@ public class PathCompression {
     }
 
     public int find(int x) {
-        if (x == root[x]) {
+        if (x == root[x]) { // checking whether parent node of x is equal it itself
             return x;
         }
-        return root[x] = find(root[x]);
+        return root[x] = find(root[x]); // use recursion to keep searching if not equal
     }
 
     public void union(int x, int y) {
@@ -32,8 +32,8 @@ public class PathCompression {
     public static void main(String[] args) throws Exception {
         PathCompression uf = new PathCompression(10);
         // 1-2-5-6-7 3-8-9 4
-        uf.union(1, 2);
-        uf.union(2, 5);
+        uf.union(1, 2); // root[2] = 1
+        uf.union(2, 5); // find(root[2]) = 1, thus root x = 1, root[5] = 1
         uf.union(5, 6);
         uf.union(6, 7);
         uf.union(3, 8);
