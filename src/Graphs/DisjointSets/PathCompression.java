@@ -34,7 +34,7 @@ public class PathCompression {
         // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2); // root[2] = 1
         uf.union(2, 5); // find(root[2]) = 1, thus root x = 1, root[5] = 1
-        uf.union(5, 6);
+        uf.union(5, 6); // find(5), rootx=1, rooty=6, root[6] = 1
         uf.union(6, 7);
         uf.union(3, 8);
         uf.union(8, 9);

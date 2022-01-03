@@ -24,25 +24,18 @@ public class UnionByRank {
         }
         return x;
     }
-    /*
-    first find root nodes of x and y
-    then check if they're the same
-    then we compare the height of the 2 nodes, if root node of X is >, we'll update rootY
-    vice verse
-    if heights are equal, then we can choose either. here we choose rootX
-    increases the tree by 1. important.
-     */
+
     public void union(int x, int y) {
         int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY) {
+        int rootY = find(y); // first find root nodes of x and y
+        if (rootX != rootY) { // then check if they're the same
             if (rank[rootX] > rank[rootY]) { // compares the height of the 2 nodes
-                root[rootY] = rootX;
-            } else if (rank[rootX] < rank[rootY]) {
+                root[rootY] = rootX; // if root node of X is >, we'll update rootY
+            } else if (rank[rootX] < rank[rootY]) { // vice verse
                 root[rootX] = rootY;
             } else {
-                root[rootY] = rootX;
-                rank[rootX] += 1;
+                root[rootY] = rootX; // if heights are equal, then we can choose either. here we choose rootX
+                rank[rootX] += 1; // increases the tree by 1. important.
             }
         }
     }

@@ -2,11 +2,11 @@ package Lists;
 
 public class LinkedList {
     public static void main(String[] args) {
-        Node head = new Node(6);
-        Node testB = new Node(4);
-        Node testC = new Node(3);
-        Node testD = new Node(2);
-        Node testE = new Node(0);
+        NodeTwo head = new NodeTwo(6);
+        NodeTwo testB = new NodeTwo(4);
+        NodeTwo testC = new NodeTwo(3);
+        NodeTwo testD = new NodeTwo(2);
+        NodeTwo testE = new NodeTwo(0);
 
         head.next = testB;
         testB.next = testC;
@@ -16,7 +16,7 @@ public class LinkedList {
         System.out.println(run.countNodes(head));
     }
 
-    public int countNodes(Node inputHead) {
+    public int countNodes(NodeTwo inputHead) {
         int count = 1;
         while (inputHead.next != null) {
             count++;
@@ -28,13 +28,9 @@ public class LinkedList {
 
 class Node {
     int data;
-    Node next;
+    NodeTwo next;
 
     public Node(int data) {
         this.data = data;
     }
-}
-
-class ListNode {
-
 }

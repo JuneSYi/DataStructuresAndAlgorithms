@@ -9,31 +9,23 @@ public class QuickUnion {
             root[i] = i;
         }
     }
-    /*
-    while loop is checking whether the root vertex is equal to the current element, if not equal, we'll continue
-    searching through its parent
-    this allows us to use the find method to find the root of x
-    O(N) complexity in worst case
-     */
+
     public int find(int x) {
-        while (x != root[x]) {
-            x = root[x];
-        }
+        while (x != root[x]) { // while loop is checking whether the root vertex is equal to the current element
+            x = root[x]; // if not equal, we'll continue searching through its parent
+        } //this allows us to use the find method to find the root of x O(N) complexity in worst case
         return x;
     }
-    /*
-    checking whether the root nodes are equal, if not, we set the rooty to rootx
-    also O(N)
-     */
-    public void union(int x, int y) {
+
+    public void union(int x, int y) { // checking whether the root nodes are equal, if not, we set the rooty to rootx
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
-            root[rootY] = rootX;
+            root[rootY] = rootX; // also O(N)
         }
     }
-    //O(N) time complexity as well
-    public boolean connected(int x, int y) {
+
+    public boolean connected(int x, int y) { //O(N) time complexity
         return find(x) == find(y);
     }
 
