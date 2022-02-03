@@ -28,7 +28,7 @@ public class findIfPathExistsInGraph {
             To represent those two edges we are pushing the nodes in the graph.
              */
         }
-
+        // deque is interface, LinkedList and ArrayDeque are two classes that extend Deque
         Deque<Integer> stack = new ArrayDeque<>();
         stack.push(start);
         boolean seen[] = new boolean[n];
