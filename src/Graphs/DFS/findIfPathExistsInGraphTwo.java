@@ -50,17 +50,23 @@ public class findIfPathExistsInGraphTwo {
     }
 
     private void dfs(Map<Integer, List<Integer>> graph, boolean[] visited, int start, int end) {
-        if(visited[start] || found) return;
+        if(visited[start] || found) return; // base case
 
         visited[start]=true;
+
         //when we found and neighbor which is equal to end point inside the recursion, done. break and return true
-        for(int nei: graph.get(start)) { // goes through entire List<Integer>, if end not found, nei is last node
-            if (nei == end) {
+        for(int nei: graph.get(start)) { // uses start as key, gets all the values for that key. iterates through
+            // graph.get pulls a List<Integer>
+            //this is dfs because it starts with one path, goes all the way down through recursion
+            //before starting the next path (second value goes after recursion is done if it exists)
+            if (nei == end) { //if any of the values equal end, then found = true. recursion complete
                 found = true;
                 break;
             }
-            if(!visited[nei]) // if false, then true. continue recursion
-                dfs(graph,visited,nei,end); // same graph, same visited, start is now va
+            if(!visited[nei]) // if false, then true. goes recursion below
+                // nei is part of the for loop
+                dfs(graph,visited,nei,end); // start is now one of the value the node is connected to
+                // we now continue with checking the values of that node
         }
     }
 }
