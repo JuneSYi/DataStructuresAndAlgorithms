@@ -1,5 +1,6 @@
 package Graphs.DFS;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,24 +24,38 @@ public class AllPathsFromSourcetoTarget {
      */
 
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-        /*
-        can we put it on a map?
-        [[1,2],
-        [3],
-        [3],
-        []]
-        dfs can check if node = n-1. then return with adding that list<Integer>
-        each key/node points to the values where they're all located, if it ends in n-1
-        we add the
-         */
-        int length = graph.length;
-        Map<Integer, List<Integer>> dot = new HashMap<>();
-        for (int i =0 ; i<length;i++) {
-            dot.put(i,new ArrayList<>());
+        List<List<Integer>> paths = new ArrayList<>();
+        if (graph == null || graph.length == 0) return paths;
+
+        dfs(graph, 0, new ArrayList<>(), paths);
+        return paths;
+
+    }
+
+    void dfs(int[][] graph, int node, List<Integer> path, List<List<Integer>> paths) {
+        path.add(node); //starts with index 0
+        if(node == graph.length-1) { // base case, once node reaches the end node, we add the arraylist to paths
+            // paths is our final answer with all the arraylists
+            paths.add(new ArrayList<>(path));
+            return;
         }
-
-        for(int[] edge: graph) {
-
+        int[] nextNodes = graph[node]; // we places the values of the first node (0) into an array
+        for (int nextNode: nextNodes) { //we loop through the array and perform recursion
+            dfs(graph, nextNode, path, paths);
+            path.remove(path.size()-1); // why remove last index in path?
+            /*
+            Classic backtracking template.
+                Make a choice.
+                Explore on that choice by recursing.
+                Undo the choice -- this is where you decrement the length by undoing step 1.
+             We have found a path which has been copied to the 'res' list already. Now we're going back one node to
+                see other solutions, so we remove the last index of the list.
+             It's backtracking. We incrementally build candidates to the solution, and abandon a candidate
+                ("backtrack") as soon as its determined that the candidate cannot possibly be completed to a valid
+                solution.
+             */
         }
     }
+
+
 }
