@@ -42,13 +42,17 @@ public class AllPathsFromSourcetoTarget {
         int[] nextNodes = graph[node]; // we places the values of the first node (0) into an array
         for (int nextNode: nextNodes) { //we loop through the array and perform recursion
             dfs(graph, nextNode, path, paths);
-            path.remove(path.size()-1); // why remove last index in path?
+            path.remove(path.size()-1); // why remove last index in path? explanation below
+            // we added initial node for path, then in this dfs recursion, we add nextNode onto path, and so forth
+            // path.remove() doesn't get executed if path completes to graph.length-1 because the return finished the
+            // dfs and adds it to paths.
+
             /*
             Classic backtracking template.
                 Make a choice.
                 Explore on that choice by recursing.
                 Undo the choice -- this is where you decrement the length by undoing step 1.
-             We have found a path which has been copied to the 'res' list already. Now we're going back one node to
+             We have found a path which has been copied to the 'path' list already. Now we're going back one node to
                 see other solutions, so we remove the last index of the list.
              It's backtracking. We incrementally build candidates to the solution, and abandon a candidate
                 ("backtrack") as soon as its determined that the candidate cannot possibly be completed to a valid
