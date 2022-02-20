@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+// solution: https://www.youtube.com/watch?v=mQeF6bN8hMk&ab_channel=NeetCode
+//https://leetcode.com/problems/clone-graph/
 public class CloneGraph {
     /*
     given a reference of a node in a connected undirected graph. return a deep copy (clone) of the graph
@@ -28,12 +30,16 @@ public class CloneGraph {
 
     private Node clone(Node node) {
         if (node == null) return null;
-        if(map.containsKey(node.val)) return map.get(node.val); // ??? map hasn't been declared with anything
+        if(map.containsKey(node.val)) return map.get(node.val); // first thing we want to do is we want to check if
+        // the node.val is already in our map, if it's already in our map, we do not need to visit that node again
 
+        //if we got to this line, that tells us we do not have a copied node for this specific value and we
+        // need to create it
         Node newNode = new Node(node.val, new ArrayList<Node>());
         map.put(newNode.val, newNode);
-        for(Node neighbor : node.neighbors)
-            newNode.neighbors.add(clone(neighbor));
+        for(Node neighbor : node.neighbors) // looping over all ours neighbors
+            newNode.neighbors.add(clone(neighbor)); //we access our neighbors with .neighbors,
+            // then we add in the recursive call of clone(neighbor)--this will always return the cloned nodes
         return newNode;
     }
 }
