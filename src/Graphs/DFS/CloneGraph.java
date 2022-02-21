@@ -3,8 +3,10 @@ package Graphs.DFS;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // solution: https://www.youtube.com/watch?v=mQeF6bN8hMk&ab_channel=NeetCode
+//https://www.youtube.com/watch?v=e5tNvT1iUXs&ab_channel=MichaelMuinos better explanation
 //https://leetcode.com/problems/clone-graph/
 public class CloneGraph {
     /*
@@ -23,22 +25,23 @@ public class CloneGraph {
 
     //  note: A deep copy means actually creating a new array and copying over the values.
 
-    private HashMap<Integer, Node> map = new HashMap<>(); // values as Node
     public Node cloneGraph(Node node) {
-        return clone(node);
+        HashMap<Integer, Node> map = new HashMap<>(); // values as Node
+        return clone(node, map);
     }
 
-    private Node clone(Node node) {
+    private Node clone(Node node, HashMap<Integer, Node> map) {
         if (node == null) return null;
         if(map.containsKey(node.val)) return map.get(node.val); // first thing we want to do is we want to check if
         // the node.val is already in our map, if it's already in our map, we do not need to visit that node again
 
         //if we got to this line, that tells us we do not have a copied node for this specific value and we
         // need to create it
-        Node newNode = new Node(node.val, new ArrayList<Node>());
-        map.put(newNode.val, newNode);
+        Node newNode = new Node(node.val, new ArrayList<Node>()); // why new ArrayList<Node>? not needed since class Node
+        // create a new ArrayList<Node>() for you
+        map.put(newNode.val, newNode); // newNode.val is same as node.val, can use either
         for(Node neighbor : node.neighbors) // looping over all ours neighbors
-            newNode.neighbors.add(clone(neighbor)); //we access our neighbors with .neighbors,
+            newNode.neighbors.add(clone(neighbor, map)); //we access our neighbors with .neighbors,
             // then we add in the recursive call of clone(neighbor)--this will always return the cloned nodes
         return newNode;
     }
