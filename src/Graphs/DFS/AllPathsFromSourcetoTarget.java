@@ -33,13 +33,14 @@ public class AllPathsFromSourcetoTarget {
     }
 
     void dfs(int[][] graph, int node, List<Integer> path, List<List<Integer>> paths) {
+        path.add(node); //starts with index 0
+
         if(node == graph.length-1) { // base case, once node reaches the end node, we add the arraylist to paths
             // paths is our final answer with all the arraylists
             paths.add(new ArrayList<>(path));
             return;
         }
         for (int nextNode: graph[node]) { //we loop through the array and perform recursion
-            path.add(node); //starts with index 0
             dfs(graph, nextNode, path, paths);
             path.remove(path.size()-1); // why remove last index in path? explanation below
             // we added initial node for path, then in this dfs recursion, we add nextNode onto path, and so forth
