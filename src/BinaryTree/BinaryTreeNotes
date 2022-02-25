@@ -1,0 +1,14 @@
+root value = highest node
+child nodes = all other nodes
+
+From graph view, a tree can also be defined as a direct acyclic graph (DAG) which has N nodes and N-1 edges
+
+Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree.
+    - starts with root, enters every node it meets along the way down immediately.
+
+In-order traversal is to traverse the left subtree first. Then visit the root. Finally, traverse the right subtree.
+    - goes all the way down to bottom child and starts from there. starts recording from child and up.
+
+Post-order traversal is to traverse the left subtree first. Then traverse the right subtree. Finally, visit the root.
+    - does root/parent node LAST
+    - traverses through child nodes of all the parents before entering in the parent

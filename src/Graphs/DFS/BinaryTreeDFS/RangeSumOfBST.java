@@ -1,5 +1,8 @@
-package Graphs.DFS;
+package Graphs.DFS.BinaryTreeDFS;
 
+/**
+ * needs to be redone. DNF
+ */
 public class RangeSumOfBST {
     int ans = 0;
     public int rangeSumBST(TreeNode root, int low, int high) {
@@ -16,15 +19,3 @@ public class RangeSumOfBST {
     }
 }
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
