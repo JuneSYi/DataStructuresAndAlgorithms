@@ -12,3 +12,21 @@ In-order traversal is to traverse the left subtree first. Then visit the root. F
 Post-order traversal is to traverse the left subtree first. Then traverse the right subtree. Finally, visit the root.
     - does root/parent node LAST
     - traverses through child nodes of all the parents before entering in the parent
+
+Mapping out Order of Operations for PreorderTraversal using Stack (preorderTraversalUsingStack)
+1. s gets entire TreeNode
+2. once s.pop() is added to cur, s is empty
+3. cur.val (root value, 1) gets added to answer
+    - cur still retains all values [1, 2, 3]
+4. s.push(cur.right), s gets all remaining values starting at cur.right (2, cur.left = 3)
+    - cur still retains all values [1, 2, 3]
+5. loop starts over with s having cur.right
+6. once s.pop() is added to cur, s is empty
+7. cur.val (now cur.right, 2) gets added to answer [1, 2]
+    - cur retains all values starting from cur.right
+8. s.push(cur.left), s gets all remaining values start at cur.left (3)
+    - cur is still the same [2, 3]
+9. loop starts over with s having cur.left
+10. once s.pop() is added to cur, s is empty
+11. cur.val (now cur.left, 3) gets added to answer [1, 2, 3]
+12. done, rest of nodes empty. when loop repeats !s.empty() will show as false and loop ends.

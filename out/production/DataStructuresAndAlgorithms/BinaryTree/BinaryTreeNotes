@@ -12,3 +12,6 @@ In-order traversal is to traverse the left subtree first. Then visit the root. F
 Post-order traversal is to traverse the left subtree first. Then traverse the right subtree. Finally, visit the root.
     - does root/parent node LAST
     - traverses through child nodes of all the parents before entering in the parent
+
+Mapping out Order of Operations for PreorderTraversal using Stack (preorderTraversalUsingStack)
+1.
