@@ -3,6 +3,7 @@ package BinaryTree;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 /** Medium
  *
@@ -109,6 +110,39 @@ public class ConstructBinaryTreeFromInorderandPostOrderTraversal {
         // build left subtree
         curTree.left = dfs(start, index - 1);
         return curTree;
+    }
+
+    // Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+    //    Output: [3,9,20,null,null,15,7]
+    public TreeNode buildTreeWithStacks(int[] inorder, int[] postorder) {
+        if (inorder.length == 0 || postorder.length == 0) return null;
+        int ip = inorder.length - 1;
+        int pp = postorder.length - 1;
+
+        Stack<TreeNode> stack = new Stack<TreeNode>(); // create a stack
+        TreeNode prev = null; //initial value
+        TreeNode root = new TreeNode(postorder[pp]); //root starts with last index of postorder
+        stack.push(root); //we push it onto the stack
+        pp--; //we start decrementing
+
+        while (pp >= 0) {
+            while (!stack.isEmpty() && stack.peek().val == inorder[ip]) {
+                prev = stack.pop(); // we allocate the last value (root, 3) to prev. stack is empty now after this
+                ip--; //index goes down by one 4-> 3
+            }
+            TreeNode newNode = new TreeNode(postorder[pp]); //TreeNode newNode using new pp value (4-1=3) so postorder[3] = 20
+            if (prev != null) { // first one will equal to root
+                prev.left = newNode; //we make prev.left the second value 20
+            } else if (!stack.isEmpty()) {
+                TreeNode currTop = stack.peek();
+                currTop.right = newNode;
+            }
+            stack.push(newNode); //we push newNode, which is TreeNode(20)
+            prev = null; // reset prev
+            pp--;
+        }
+
+        return root;
     }
 
     //-----------------------------------------------------------------------------------
