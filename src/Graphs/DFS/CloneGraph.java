@@ -37,13 +37,15 @@ public class CloneGraph {
 
         //if we got to this line, that tells us we do not have a copied node for this specific value and we
         // need to create it
-        Node newNode = new Node(node.val, new ArrayList<Node>()); // why new ArrayList<Node>? not needed since class Node
-        // create a new ArrayList<Node>() for you
-        map.put(newNode.val, newNode); // newNode.val is same as node.val, can use either
+        Node copy = new Node(node.val);
+        map.put(copy.val, copy); // copy.val is same as node.val, can use either
         for(Node neighbor : node.neighbors) // looping over all ours neighbors
-            newNode.neighbors.add(clone(neighbor, map)); //we access our neighbors with .neighbors,
+            copy.neighbors.add(clone(neighbor, map)); //we access our neighbors with .neighbors,
             // then we add in the recursive call of clone(neighbor)--this will always return the cloned nodes
-        return newNode;
+
+        // Explanation:
+        // each call to clone(neightbor, map) is creating a new copy of whatever node we're looking at if it has not been created
+        return copy;
     }
 }
 
