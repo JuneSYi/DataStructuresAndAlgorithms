@@ -37,6 +37,18 @@ public class CloneNaryTree {
         }
         return map.get(root);
     }
+
+    /**
+     * simplest solution
+     */
+    public Node cloneTreeEasy(Node r) {
+        if (r == null)
+            return null;
+        var new_r = new Node(r.val);
+        for (var child: r.children)
+            new_r.children.add(cloneTree(child));
+        return new_r;
+    }
 }
 
 class Node {
@@ -52,7 +64,7 @@ class Node {
         children = new ArrayList<Node>();
     }
 
-    public Node(int _val,ArrayList<Node> _children) {
+    public Node(int _val, ArrayList<Node> _children) {
         val = _val;
         children = _children;
     }
