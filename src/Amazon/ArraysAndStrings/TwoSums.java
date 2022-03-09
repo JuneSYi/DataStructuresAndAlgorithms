@@ -1,4 +1,4 @@
-package Amazon;
+package Amazon.ArraysAndStrings;
 
 import java.util.HashMap;
 import java.util.Map;
