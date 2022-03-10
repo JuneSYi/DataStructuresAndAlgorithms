@@ -11,11 +11,10 @@ public class FirstUniqueCharacterInAString {
     public int withHash(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            map.put(s.charAt(i), i);
-        }
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0)+1); //gets the value if exists, and then adds one
+        } // if no value, then defaults to 0, adds one afterwards.
         for (int i = 0; i < s.length(); i++) {
-            if(map.containsKey(s.charAt(i))) continue;
-            return i;
+            if(map.get(s.charAt(i))==1) return i;
         }
         return -1;
     }
