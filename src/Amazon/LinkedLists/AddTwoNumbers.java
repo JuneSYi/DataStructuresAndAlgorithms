@@ -24,7 +24,8 @@ public class AddTwoNumbers {
             l2 = l2.next;
         }
         int ans = sum + sec;
-
+        ListNode well = new ListNode();
+        return well;
     }
 }
 
