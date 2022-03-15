@@ -27,43 +27,35 @@ and then subtract commas and periods,
 then if word .equals banned word, we remove based on index of the list
 then map out everything and add to value for each key-value pair
  */
-        paragraph.toLowerCase();
-        String[] split = paragraph.split(" ");
-        for (int i = 0; i < split.length; i++) {
-            int b = 0;
-            int e = split[i].length()-1;
-            if (split[i].charAt(b) == '"') split[i].equals(split[i].substring(b+1)); // beginning of all words
+        paragraph = paragraph.replaceAll("[!?.;/,.]", " ");
+        paragraph = paragraph.toLowerCase();
 
-            if (split[i].charAt(e) == ',' || split[i].charAt(e) == '.' || split[i].charAt(e) == '"' ||
-                    split[i].charAt(e) == '!' || split[i].charAt(e) == '?' || split[i].charAt(e) == ';') {
-                split[i].equals(split[i].substring(b, e - 1));
-            }
-            //x2
-            if (split[i].charAt(e) == ',' || split[i].charAt(e) == '.' || split[i].charAt(e) == '!' || split[i].charAt(e) == '?') {
-                split[i].equals(split[i].substring(b, e - 1));
-            }
-        }
-        List<String> list = Arrays.asList(split);
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < banned.length; j++) {
-                if (list.get(i).equals(banned[j])) list.remove(i);
-            }
-        }
+        String[] arr = paragraph.split("\\s+");
 
-        Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            if(map.containsKey(list.get(i))) map.put(list.get(i), map.get(i)+1);
-            map.put(list.get(i), 0);
+
+        Map<String, Integer> newTech = new HashMap<String, Integer>();
+        for (int i=0; i<arr.length; i++) {
+
+            if (newTech.containsKey(arr[i])) {
+                newTech.put(arr[i],newTech.get(arr[i])+1);
+                continue;
+            }
+            newTech.put(arr[i],1);
+
+        }
+        for (int j =0 ; j<banned.length; j++) {
+            if (newTech.containsKey(banned[j])) newTech.remove(banned[j]);
         }
         int highest = 0;
-        String ans = "";
+        String val = "";
 
-        for (int i = 0; i < list.size(); i++) {
-            if (map.get(i) > highest) {
-                highest = map.get(i);
-                ans = map.;
+        for (String words : newTech.keySet()) {
+            if (newTech.get(words) > highest) {
+                highest = newTech.get(words);
+                val = words;
             }
         }
+        return val;
     }
 
     public String mostCommonWordSolved(String paragraph, String[] banned) {
