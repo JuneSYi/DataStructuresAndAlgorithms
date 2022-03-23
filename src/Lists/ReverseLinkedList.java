@@ -27,6 +27,14 @@ public class ReverseLinkedList {
         return reverseList(head, newHead);
     }
 
+    public ListNode reverseListTwo(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode p = reverseListTwo(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
+
 
     /**
      * we're only given the head node (ListNode head)
