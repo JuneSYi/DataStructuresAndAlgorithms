@@ -1,10 +1,10 @@
-package Gotham;
+package CompanyX;
 
 public class QuestionThree {
     /**
      * Good morning! Here's your coding interview problem for today.
      *
-     * This problem was asked by Gotham.
+     * This problem was asked by X.
      *
      * In academia, the h-index is a metric used to calculate the impact of a
      * researcher's papers. It is calculated as follows:

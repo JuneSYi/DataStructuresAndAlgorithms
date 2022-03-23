@@ -1,10 +1,10 @@
-package Gotham;
+package CompanyX;
 
 public class QuestionTwo {
     /**
      * Good morning! Here's your coding interview problem for today.
      *
-     * This problem was asked by Gotham.
+     * This problem was asked by X.
      *
      * A typical American-style crossword puzzle grid is an N x N matrix with black and
      * white squares, which obeys the following rules:
