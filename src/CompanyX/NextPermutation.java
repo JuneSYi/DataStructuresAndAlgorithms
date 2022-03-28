@@ -9,7 +9,7 @@ public class NextPermutation {
     /**
      * Good morning! Here's your coding interview problem for today.
      *
-     * This problem was asked by Gotham.
+     * This problem was asked by X.
      *
      * Given a number represented by a list of digits, find the next greater
      * permutation of a number, in terms of lexicographic ordering. If there is not
