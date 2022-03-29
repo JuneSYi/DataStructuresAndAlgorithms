@@ -1,6 +1,6 @@
-package Lists;
+package LinkedLists;
 
-public class LinkedList {
+public class DoublyLinkedList {
     public static void main(String[] args) {
         NodeTwo head = new NodeTwo(6);
         NodeTwo testB = new NodeTwo(4);
@@ -12,25 +12,20 @@ public class LinkedList {
         testB.next = testC;
         testC.next = testD;
         testD.next = testE;
-        LinkedList run = new LinkedList();
-        System.out.println(run.countNodes(head));
-    }
 
-    public int countNodes(NodeTwo inputHead) {
-        int count = 1;
-        while (inputHead.next != null) {
-            count++;
-            inputHead = inputHead.next;
-        }
-        return count;
+        testB.prev = head;
+        testC.prev = testB;
+        testD.prev = testC;
+        testE.prev = testD;
     }
 }
 
-class Node {
+class NodeTwo {
     int data;
     NodeTwo next;
+    NodeTwo prev;
 
-    public Node(int data) {
+    public NodeTwo(int data) {
         this.data = data;
     }
 }

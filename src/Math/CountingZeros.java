@@ -1,3 +1,5 @@
+package Math;
+
 public class CountingZeros {
     public static void main(String[] args) {
         System.out.println(count(30210));

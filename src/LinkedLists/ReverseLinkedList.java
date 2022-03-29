@@ -1,6 +1,4 @@
-package Lists;
-
-import java.util.List;
+package LinkedLists;
 
 public class ReverseLinkedList {
 

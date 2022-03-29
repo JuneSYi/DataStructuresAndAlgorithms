@@ -32,9 +32,9 @@ public class ValidateBinarySearchTree {
         return true;
     }
 
-    public boolean optimal(TreeNode root) {
-
-    }
+//    public boolean optimal(TreeNode root) {
+//
+//    }
 }
 
 class TreeNode {

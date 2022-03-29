@@ -43,4 +43,9 @@ public class MinimumDeletionsToMakeArrayBeautiful {
         }
         return c + size % 2; // as even number of elements needed
     }
+    /**
+     * C => Count of deleted elements.
+     * Size => New Size of the array after deleting some elements
+     * even = !even => because after every odd index we will get even index and vice versa. ! toggles between true and false.
+     */
 }

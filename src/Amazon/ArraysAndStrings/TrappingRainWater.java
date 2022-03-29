@@ -1,5 +1,7 @@
 package Amazon.ArraysAndStrings;
 
+import java.util.Stack;
+
 /**
  * Given n non-negative integers representing an elevation map where the width of each bar is 1,
  * compute how much water it can trap after raining.
@@ -38,6 +40,22 @@ public class TrappingRainWater {
             i++;
         }
         return total;
+    }
+
+    public int withStack(int[] height) {
+        int ans =0, current =0;
+        Stack<Integer> stack = new Stack<>();
+        while (current < height.length) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
+                int numb = stack.pop();
+                if (stack.isEmpty()) break;
+                int distance = current - stack.peek() - 1;
+                int boundedHeight = Math.min(height[current], height[stack.peek()]) - height[numb];
+                ans += distance * boundedHeight;
+            }
+            stack.push(current++);
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
