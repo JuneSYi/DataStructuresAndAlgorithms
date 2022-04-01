@@ -1,4 +1,4 @@
-package CompanyX;
+package ExtraStudy;
 
 import java.util.*;
 
