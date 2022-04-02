@@ -8,6 +8,23 @@ public class BinarySearch {
         System.out.println(nonRecurs(arr, 4));
     }
 
+    public int searchOptimal(int[] nums, int target) {
+        int lo = 0, hi = nums.length-1, mid = lo + (hi-lo)/2;
+        if (nums[mid] == target) return mid;
+
+        while (lo <= hi) {
+            if (nums[mid] == target) return mid;
+            if (target > nums[mid]) {
+                lo = mid +1;
+                mid = lo + (hi-lo)/2;
+            } else {
+                hi = mid-1;
+                mid = lo + (hi - lo) /2;
+            }
+        }
+        return -1;
+    }
+
     // with recursion
     static int search(int[] array, int target, int start, int end) {
         if (start > end) {
@@ -42,4 +59,6 @@ public class BinarySearch {
         }
         return mid; //index where targetnumber resides
     }
+
+
 }
