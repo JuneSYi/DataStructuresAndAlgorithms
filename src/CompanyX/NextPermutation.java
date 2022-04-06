@@ -47,7 +47,7 @@ public class NextPermutation {
                 break;
             index--;
         }
-        if(index==0){ // this is in the invent where no numbers can be permutated. all numbers were in descending order so we sort it to ascending
+        if(index==0){ // this is in the event where no numbers can be permutated. all numbers were in descending order so we sort it to ascending
             reverseSort(num,0,n-1);
             return;
         }

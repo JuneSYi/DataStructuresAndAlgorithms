@@ -1,25 +1,32 @@
 package Amazon.ArraysAndStrings;
 
 public class ProductofArrayExceptSelf {
-    public int[] productExceptSelf(int[] nums) {
-        int[] arr = new int[nums.length];
-        int max = 1;
-        for (int i = 0; i < nums.length; i++) {
-            max = max * nums[i];
+    /**
+     * O(1) - space
+     */
+    public int[] productExceptSelfMoreOptimal(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        // Calculate lefts and store in res.
+        int left = 1;
+        for (int i = 0; i < n; i++) {
+            if (i > 0)
+                left = left * nums[i - 1];
+            res[i] = left;
         }
-        for (int i = 0; i < nums.length; i++) {
-            //(nums[i]-1)*ans=max;
+        // Calculate rights and the product from the end of the array.
+        int right = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            if (i < n - 1)
+                right = right * nums[i + 1];
+            res[i] *= right;
         }
-        /*
-        ans * nums[i] = max
-        24 * 1 = 24
-        12 * 2 = 24
-        8 * 3 = 24
-        6 * 4 = 24
-         */
-        return new int[2];
+        return res;
     }
 
+    /**
+     * O(n) - space
+     */
     public int[] productExceptSelfOptimal(int[] nums) {
         int n = nums.length;
         int[] left = new int[n];
