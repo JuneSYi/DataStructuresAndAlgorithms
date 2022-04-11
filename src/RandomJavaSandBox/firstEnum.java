@@ -1,3 +1,5 @@
+package RandomJavaSandBox;
+
 public enum firstEnum {
     SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY;
 

@@ -1,3 +1,5 @@
+package RandomJavaSandBox;
+
 import java.util.*;
 
 public class Hashmapdemo {

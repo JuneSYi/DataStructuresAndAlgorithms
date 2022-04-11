@@ -1,3 +1,5 @@
+package RandomJavaSandBox;
+
 public class secondEnum {
     firstEnum day;
 
@@ -26,9 +28,9 @@ public class secondEnum {
 
 
     public static void main(String[] args) {
-//        firstEnum business = firstEnum.MONDAY;
-//        if (business == firstEnum.MONDAY) {
-//            System.out.println(firstEnum.getVerb("Enum is good"));
+//        RandomJavaSandBox.firstEnum business = RandomJavaSandBox.firstEnum.MONDAY;
+//        if (business == RandomJavaSandBox.firstEnum.MONDAY) {
+//            System.out.println(RandomJavaSandBox.firstEnum.getVerb("Enum is good"));
 //        }
 
 
