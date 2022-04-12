@@ -24,7 +24,7 @@ public class GenerateParentheses {
          */
         if (open < max) backtrack(output_arr, current_string + "(", open + 1, close, max);
         if (close < open) backtrack(output_arr, current_string + ")", open, close + 1, max);
-        // this only executes if there is more open than close,
+        // this only executes if there is more open than close, it'll execute the first time since open is < max in the beginning
     }
 
 // ----------------------------------------------------------------------------------------------------------------
