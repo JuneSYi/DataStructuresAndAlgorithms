@@ -12,3 +12,17 @@ Graphs
 LinkedLists
 
 Math/Bitwise
+
+Arrays and Strings
+
+Backtracking
+
+Binary Search
+
+DP
+
+Heap
+
+Linked Lists
+
+Leetcode Challenges
