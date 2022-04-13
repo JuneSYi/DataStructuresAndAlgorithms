@@ -27,7 +27,8 @@ public class Permutations {
             list.add(new ArrayList<>(temp));
         }
         for (int i = 0 ; i<nums.length; i++) { // recursive step
-            if(temp.contains(nums[i])) continue;
+            if(temp.contains(nums[i])) continue; // here we have i = 0 so that it goes through the entire nums[i] no matter what number we are on
+            // we add this if statement to check if the number has already been placed to skip over it. ez pz.
             temp.add(nums[i]);
             backtrack(list, nums, i+1, temp);
             temp.remove(temp.size()-1);
