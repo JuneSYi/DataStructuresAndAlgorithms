@@ -1,14 +1,14 @@
-package Amazon.ArraysAndStrings;
+package RandomJavaSandBox;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class test {
+public class regexPractice {
     public String CommonWord(String paragraph, String[] banned) {
         paragraph = paragraph.replaceAll("[!?.;/,.]", " ");
         paragraph = paragraph.toLowerCase();
 
-        String[] arr = paragraph.split("\\s+");
+        String[] arr = paragraph.split("\\s+"); // \\s+ finds all (multi) white spaces, \\s will find only single whitespaces
 
 
         Map<String, Integer> newTech = new HashMap<String, Integer>();
@@ -40,7 +40,7 @@ public class test {
     public static void main(String[] args) {
         String stre = "Bob hit a ball, the hit BALL flew far after it was hit ball ball ball.";
         String[] ban = {"hit"};
-        test exe = new test();
+        regexPractice exe = new regexPractice();
         System.out.println(exe.CommonWord(stre, ban));
     }
 }

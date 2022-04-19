@@ -7,7 +7,7 @@ public class FactorCombinations {
     public List<List<Integer>> getFactors(int n) {
         if (n%2==1) return new ArrayList<>();
         List<List<Integer>> list = new ArrayList<>();
-        backtrack();
+        //backtrack();
         return list;
     }
 
@@ -34,7 +34,7 @@ public class FactorCombinations {
         return result;
     }
 
-    public void helper(List<List<Integer>> result, List<Integer> item, int n, int start){ // 4 values
+    public void helper(List<List<Integer>> result, List<Integer> item, int n, int start) { // 4 values
         if (n <= 1) { // number will eventually be reduced to 1
             if (item.size() > 1) {
                 result.add(new ArrayList<Integer>(item));
@@ -45,9 +45,10 @@ public class FactorCombinations {
         for (int i = start; i <= n; ++i) { //starts with 2
             if (n % i == 0) { //if no remainders
                 item.add(i); // then we can add
-                helper(result, item, n/i, i); //recurse into new number once we divide by i, starts with 2,
+                helper(result, item, n / i, i); //recurse into new number once we divide by i, starts with 2,
                 // we'll build the list that has 2 and every number after.
-                item.remove(item.size()-1);
+                item.remove(item.size() - 1);
             }
         }
+    }
 }
