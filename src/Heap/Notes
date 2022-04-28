@@ -14,7 +14,7 @@ Heap has the following properties:
         - Each node in the Heap has a value no less than its child nodes.
         - therefore, the top element (root node) has the largest value in the Heap.
     2. Min Heap
-        - each node in the heap has a value no alrger than its child nodes.
+        - each node in the heap has a value no larger than its child nodes.
         - therefore, the top element (root node) has the smallest value in the Heap
 
 Heap Insertion
