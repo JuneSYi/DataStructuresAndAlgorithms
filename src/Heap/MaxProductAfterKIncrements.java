@@ -43,16 +43,17 @@ public class MaxProductAfterKIncrements {
     public int maximumProductOptimal(int[] nums, int k) {
 
         Queue<Integer> pq = new PriorityQueue<>();
-        for (int num : nums)    pq.add(num);
+        for (int num : nums)
+            pq.add(num); // for each num in the array, add it to the p.queue
 
-        while (k-->0) {
-            int top = pq.poll() + 1 ;
-            pq.add(top);
-        }
+        while (k-->0) { //while k> 0
+            int top = pq.poll() + 1 ; //take the first number of p.queue (it'll be the lowest) and add one
+            pq.add(top); // add the number back into the p.queue
+        } // k will decrement by 1 every loop because of the --
 
-        long res = 1;
-        while (!pq.isEmpty()) {
-            res = (res*pq.poll()) % 1000000007;
+        long res = 1; // start with variable
+        while (!pq.isEmpty()) { //while p.queue is not empty
+            res = (res*pq.poll()) % 1000000007; //multiply number by res. final result modulo 10^9+7.
         }
 
         return (int)(res);
