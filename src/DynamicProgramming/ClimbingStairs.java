@@ -21,8 +21,8 @@ public class ClimbingStairs {
         return dp(i - 1) + dp(i - 2); // Recurrence relation
     }
 
-    /*
-    with Memoization
+    /**
+    with Memoization. so beautiful
      */
     private HashMap<Integer, Integer> memo = new HashMap<>();
 
