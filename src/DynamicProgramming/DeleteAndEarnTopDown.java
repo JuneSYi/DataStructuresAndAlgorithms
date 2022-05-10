@@ -2,7 +2,7 @@ package DynamicProgramming;
 
 import java.util.HashMap;
 
-public class DeleteAndEarn {
+public class DeleteAndEarnTopDown {
     HashMap<Integer, Integer> map = new HashMap<>();
     public int deleteAndEarn(int[] nums) {
         int[] buckets = new int[10001];
