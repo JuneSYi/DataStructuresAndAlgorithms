@@ -1,5 +1,0 @@
-most advantageous use case of BFS is to efficiently find the shortest path between two vertices in a 'graph' where all
-edges have equal and positive weights
-
-BFS can find the shortest path without traversing all paths. This is because when using BFS, as soon as a path between
-the source vertex and target vertex is found, it is guaranteed to be the shortest path between two nodes
