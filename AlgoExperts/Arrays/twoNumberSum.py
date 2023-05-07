@@ -1,4 +1,18 @@
-# O(N) time and space
+# O(nlog(n)) - at most, go through all #s once, log(n) for quicksort? the sort()?
+# O(1) for space
+def twoNumberSum(array, targetSum):
+    array.sort()
+    right = len(array)-1
+    left = 0
+    while left < right:
+        if array[left] + array[right] == targetSum:
+            return [array[left],array[right]]
+        if array[left]+array[right]>targetSum:
+            right -=1
+        else:
+            left +=1
+    return []
+
 def twoNumberSum(array, targetSum):
     nums = {} # dict or set, [] is list, () is tuple
     for num in array:
@@ -14,7 +28,10 @@ def twoNumberSum(array, targetSum):
             # next number, temp is -1, doesn't exist (5-6), adds 6, next number, temp is 4, which exists.
             
     return []
-
+# this works because we know x+y=targetSum. if we can find what y is and it exists in the hashtable, we know the x
+# value was stored in the dict at an earlier iteration so those 2 numbers can sum
+# we're using num and we're seeing if the other number was in the history of numbers used. we check back so we
+# can compare the curr number with every other number in past since we only need to compare 2
 
 # WORKING O(2N)
 def twoNumberSum(array, targetSum):
