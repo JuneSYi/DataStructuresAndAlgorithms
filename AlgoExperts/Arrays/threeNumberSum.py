@@ -1,3 +1,22 @@
+# O(n^2), O(n) space
+def threeNumberSum(array, targetSum):
+    array.sort()
+    ans = []
+    for idx,val in enumerate(array[:-2]):
+        left = idx+1
+        right = len(array)-1
+        while left < right:
+            cs = val+array[left]+array[right]
+            if cs==targetSum:
+                temp = [val,array[left],array[right]]
+                ans.append(temp)
+            if cs>targetSum:
+                right -= 1
+            else:
+                left +=1
+    return ans
+
+
 # fail
 def threeNumberSum(array, targetSum):
     # non-empty array, distinct integers, find all triplets that sum up to target sum
