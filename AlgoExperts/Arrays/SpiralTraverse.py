@@ -1,3 +1,32 @@
+#closer, not quite tho
+def spiralTraverse(array):
+    # n x m, rows are restricted to n, length is restricted to m.
+    # left to right, right to down, down to left, left to up
+    # we want to track all values so we'll have 4 variables
+    # how do we account for edge cases? e.g. odd # of rows/cols
+    # for left to right, and top to bot, use >=
+    leftcol, rightcol = 0, len(array[0])-1
+    toprow, botrow = 0, len(array)-1
+    ans = []
+    while leftcol <= rightcol and toprow <= botrow:
+        for i in range(leftcol,rightcol): # goes to last number
+            ans.append(array[toprow][i])
+        for x in range(toprow,botrow): # starts after last loop, goes to last #
+            ans.append(array[x][rightcol])
+        if toprow < botrow:
+            for y in range(rightcol,leftcol,-1): # starts 1 from right col finished, 
+                # leftcol-1 makes it go all the way
+                ans.append(array[botrow][y])
+        if leftcol < rightcol:
+            for z in range(botrow,toprow,-1):
+                ans.append(array[z][leftcol])
+        leftcol +=1
+        toprow +=1
+        rightcol -=1
+        botrow -=1
+    return ans
+
+
 #fail, took too long
 def spiralTraverse(array):
     # new array, goes right
