@@ -1,3 +1,22 @@
+# someone figured this out in < 5 mins after I came back to it on another day
+# O(nlogn) time due to sorted(), O(1) space
+def mergeOverlappingIntervals(intervals):
+    # finished in solution 2, but need to do it again, 
+    # takes in non-empty array, merges any overlapping, returns new interval
+    # check [1] position with [0] position, if yes, then assign [1] of +1 position then pop that
+    # if pop then i remains same, else i+=1
+    newint = sorted(intervals)
+    i = 0
+    while i < len(newint)-1:
+        if newint[i][1] < newint[i+1][0]:
+            i+=1
+            continue
+        else:
+            newint[i][1] = max(newint[i][1],newint[i+1][1])
+            newint.pop(i+1)
+    return newint
+
+
 # took me too long but got it finally.
 # learn that just doing sorted(val) doesn't make val sorted unless you make it: val = sorted(val)
 # learned edge case of assuming too much
