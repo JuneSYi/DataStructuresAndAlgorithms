@@ -1,3 +1,29 @@
+# fail again
+def fourNumberSum(array, targetSum):
+    dict = {}
+    for idx,val in enumerate(array[:len(array)-1]):
+        for lvl,num in enumerate(array[1:]):
+            temp = val + num
+            if dict.get(temp):
+                dict[temp].append([idx,lvl])
+            else:
+                dict[temp] = [[idx,lvl]]
+    ans = []
+    for idx,k in enumerate(list(dict)):
+        if idx == len(dict)-1:
+            break
+        for v in list(dict)[idx+1:]:
+            if targetSum-k == v:
+                # check if indexes are same
+                # first check if multiple exist
+                for sep in dict[v]:
+                    for tan in dict[k]:
+                        if tan[0] != sep[0]:
+                            ans.append([array[sep[0]],array[sep[1]],array[tan[0]],array[tan[1]]])
+    return ans
+    
+
+
 # fail
 def fourNumberSum(array, targetSum):
     # non-empty array, distinct integers, so unique,
