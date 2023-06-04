@@ -1,3 +1,41 @@
+# failed, thought sets automatically ordered the number. it differs for every compiler or interpreter or version of python because it goes off a hash value that's pre-determined.
+
+# can i beat nlogn
+def largestRange(array):
+    # dict, index doesn't matter, hashsets do auto sort, plus it takes out repeats which also don't matter
+    # put all in hashset
+    # go through hashset
+    if len(array) < 2:
+        return [array[0],array[0]]
+    dict = set()
+    for val in array:
+        dict.add(val)
+    count = 0
+    max = 0
+    orig = 0
+    ans = []
+    prev = 0
+    for idx,key in enumerate(dict):
+        if count == 0:
+            count+=1
+            prev = key
+            continue
+        if key == prev+1:
+            count+=1
+            if count == 2:
+                orig = prev
+            if idx == len(dict)-1:
+                if count > max:
+                    return [orig,key]
+        else:
+            if count > max:
+                max = count
+                ans = [orig,prev]
+            count = 1
+        prev = key
+    return ans
+
+
 # terrible solution, took too long, need to consider edge cases more often
 # O(nlogn) time, O(1) space
 def largestRange(array):
