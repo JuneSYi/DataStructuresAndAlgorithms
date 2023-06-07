@@ -1,3 +1,30 @@
+# oof, still failing
+def zigzagTraverse(array):
+    # Write your code here.
+    # quick potential solution that i thought about. 
+    # it just needs to go until array[len(array)-1][len(array[0]-1)]
+    # the rest is something with range() and + and - numbers for n and m
+    # simple
+    nlen = len(array)-1
+    mlen = len(array[0])-1
+    x,y = 0,0
+    ans = []
+    ans.append(array[x,y])
+    x+=1
+    while (x != nlen and y != 0) or (x != 0 and y != mlen):
+        # if x == 0, then y+1 to start over
+        # if y == 0, then x+1 to start over
+        while x 
+            
+        
+        pass
+    while x != nlen and y != mlen:
+        # after halfway, if y == mlen, then x+1
+        # after halfway, if x == nlen, then y+1
+        pass
+    pass
+
+
 # i suck so bad, spent over an hour on this one and still failed
 def zigzagTraverse(array):
     # n x m 2d array, returns 1d array of all elements in zigzag
