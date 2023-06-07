@@ -1,3 +1,16 @@
+# logic i need to implement, not hard, just gotta think it through
+# if left limit, or bot limit, we change goingDown and move one over (depending on limit)
+# if at very bottom, move right one
+# if at very right side, move down one
+# else we go down one, and left one
+# it keeps going down and left, until limit hit
+# if goingDown = False, we're going up, if at top or right limit
+# if top or right limit hit
+# if at the most right, then row moves one down (+1)
+# else it means we're at the most top so column goes over one
+# keeps going up, right, until limit hit
+
+
 # oof, still failing
 def zigzagTraverse(array):
     # Write your code here.
