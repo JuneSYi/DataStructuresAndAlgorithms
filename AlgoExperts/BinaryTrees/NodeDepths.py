@@ -1,6 +1,13 @@
 # O(n) time, O(n) space
 # time because we have to travel through every node
 # space because for worst case scenario, it recurses through every node before it returns in a single branche tree.
+'''
+starts both at 0, sum is always zero for each recursion function, we can add all up at the end
+we can also us the sum parameter to keep track of the total number as long as it's consistent throughout and updated.
+for this we would remove leftsum and right sum and update sum each time it's returned an updated number.
+the recursion functions for left node and right node would not start at 0, but would start at sum parameter.
+the final point would return just sum since we removed left and rightsums.
+'''
 def nodeDepths(root):
     # Write your code here.
     return recNodes(root,0,0)
